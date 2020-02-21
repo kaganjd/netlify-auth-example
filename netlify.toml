@@ -1,0 +1,16 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+  functions = "api"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = {Role = ["admin"]}
+
+[[redirects]]
+  from = "/*"
+  to = "/login.html"
+  status = 200
+  force = true
