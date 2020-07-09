@@ -1,7 +1,7 @@
-import express from 'express';
-import serverless from 'serverless-http';
-import { sign } from 'jsonwebtoken';
-import uuid from 'uuid/v4';
+const express = require("express");
+const serverless = require("serverless-http");
+const jwt = require('jsonwebtoken');
+const uuid = require('uuid/v4');
 
 const app = express();
 
@@ -17,8 +17,8 @@ const userData = {
 
 app.get('/.netlify/functions/auth/anon', (_, res) => {
   return res
-    .cookie('nf_jwt', sign(userData, process.env.JWT_SECRET))
+    .cookie('nf_jwt', jwt.sign(userData, process.env.JWT_SECRET))
     .redirect('/');
 });
 
-export const handler = serverless(app);
+module.exports.handler = serverless(app);

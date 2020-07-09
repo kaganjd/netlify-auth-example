@@ -13,14 +13,12 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "netlify-lambda": "^1.6.3",
     "react-scripts": "3.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run build:web && npm run build:functions",
+    "build": "npm run build:web",
     "build:web": "react-scripts build && npm run post-build",
-    "build:functions": "netlify-lambda build functions",
     "post-build": "cp src/login.html build/login.html"
   },
   "eslintConfig": {
